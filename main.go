@@ -36,7 +36,7 @@ func main() {
 			log.Fatalf("unable to build client : %s", err.Error())
 		}
 		serverversion, err := client.ServerVersion()
-		version := strings.Replace(serverversion.GitVersion, "_", "+", -1)
+		version := strings.Replace(serverversion.GitVersion, "+", "_", -1)
 		err = setValueInFile(version)
 		if err != nil {
 			log.Fatalf("unable to set image version : %s", err.Error())
