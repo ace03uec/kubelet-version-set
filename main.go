@@ -36,6 +36,9 @@ func main() {
 			log.Fatalf("unable to build client : %s", err.Error())
 		}
 		serverversion, err := client.ServerVersion()
+		if err != nil {
+			log.Fatalf("unable to get version from server : %s", err.Error())
+		}
 		version := strings.Replace(serverversion.GitVersion, "+", "_", -1)
 		err = setValueInFile(version)
 		if err != nil {
